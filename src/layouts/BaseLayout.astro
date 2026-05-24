@@ -3,12 +3,54 @@ interface Props {
   lang: 'he' | 'en';
   metaTitle: string;
   metaDescription: string;
+  ogImage?: string;
+  isHomepage?: boolean;
 }
 
-const { lang, metaTitle, metaDescription } = Astro.props;
+const { lang, metaTitle, metaDescription, ogImage, isHomepage = false } = Astro.props;
 const dir = lang === 'he' ? 'rtl' : 'ltr';
-const altLang = lang === 'he' ? 'en' : 'he';
-const altPath = lang === 'he' ? '/en/' : '/';
+const siteUrl = 'https://msapps-website-staging.web.app';
+const canonical = Astro.url.href;
+const ogImg = ogImage ?? `${siteUrl}/og-default.png`;
+const ogType = isHomepage ? 'website' : 'article';
+const ogLocale = lang === 'he' ? 'he_IL' : 'en_US';
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'MSApps Development House',
+  url: 'https://msapps.mobi',
+  logo: 'https://msapps.mobi/logo.png',
+  description: lang === 'he'
+    ? 'בית פיתוח בוטיק ישראלי המתמחה באפליקציות מובייל, ווב, בינה מלאכותית והרחבת צוותים.'
+    : 'Israeli boutique development house specializing in mobile apps, web applications, AI automation, and team augmentation.',
+  foundingDate: '2010',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '6 Galgalei HaPlada',
+    addressLocality: 'Herzliya',
+    addressCountry: 'IL',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+972544255549',
+    email: 'info@msapps.mobi',
+    contactType: 'sales',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/msapps-mobi/',
+    'https://www.facebook.com/msapps.mobi',
+    'https://github.com/MSApps-Mobile',
+  ],
+  knowsAbout: [
+    'Mobile App Development',
+    'Web Application Development',
+    'AI Automation',
+    'Claude Plugins',
+    'SOSA Methodology',
+    'Team Augmentation',
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang={lang} dir={dir}>
@@ -17,15 +59,34 @@ const altPath = lang === 'he' ? '/en/' : '/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{metaTitle}</title>
     <meta name="description" content={metaDescription} />
-    <link rel="alternate" hreflang={lang} href={Astro.url.href} />
-    <link rel="alternate" hreflang={altLang} href={new URL(altPath, Astro.url).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.url).href} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="alternate" hreflang="he" href={lang === 'he' ? canonical : new URL('/', siteUrl).href} />
+    <link rel="alternate" hreflang="en" href={lang === 'en' ? canonical : new URL('/en/', siteUrl).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/en/', siteUrl).href} />
+
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={ogImg} />
+    <meta property="og:site_name" content="MSApps Development House" />
+    <meta property="og:locale" content={ogLocale} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImg} />
+
+    {isHomepage && <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />}
+
     <style>
       :root {
         --bg: #ffffff;
         --fg: #0a0a0a;
         --muted: #4b5563;
-        --accent: #ea580c;
+        --accent: #e8611a;
+        --accent-hover: #c2410c;
         --max-w: 72ch;
       }
       * { box-sizing: border-box; }
@@ -61,19 +122,24 @@ const altPath = lang === 'he' ? '/en/' : '/';
         border-radius: 6px;
         font-weight: 600;
       }
-      .cta:hover { background: #c2410c; text-decoration: none; }
+      .cta:hover { background: var(--accent-hover); text-decoration: none; }
+      .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+      .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: 0.5rem 1rem; background: var(--fg); color: var(--bg); z-index: 100; }
       nav { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
       nav a { margin-inline-end: 1rem; color: var(--muted); }
       footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; font-size: 0.85rem; color: var(--muted); text-align: center; }
     </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">{lang === 'he' ? 'דלגי לתוכן' : 'Skip to content'}</a>
     <main>
-      <nav>
-        <a href="/">עברית</a>
-        <a href="/en/">English</a>
+      <nav aria-label={lang === 'he' ? 'שפות' : 'Languages'}>
+        <a href="/" hreflang="he" lang="he">עברית</a>
+        <a href="/en/" hreflang="en" lang="en">English</a>
       </nav>
-      <slot />
+      <div id="main-content">
+        <slot />
+      </div>
       <footer>
         © {new Date().getFullYear()} MSApps · <a href="mailto:info@msapps.mobi">info@msapps.mobi</a> · <a href="https://www.linkedin.com/company/msapps-mobi/">LinkedIn</a> · <a href="https://github.com/MSApps-Mobile">GitHub</a>
       </footer>
