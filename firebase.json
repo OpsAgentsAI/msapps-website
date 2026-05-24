@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "msapps-website-staging",
+    "target": "staging",
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": true,
