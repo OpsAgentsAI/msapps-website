@@ -1,0 +1,17 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'iot-he');
+if (!page) throw new Error('iot-he content missing');
+const { Content } = await render(page);
+const { metaTitle, metaDescription, h1, subhead, cta, ctaHref } = page.data;
+---
+<BaseLayout lang="he" metaTitle={metaTitle} metaDescription={metaDescription}>
+  <header>
+    <h1>{h1}</h1>
+    {subhead && <p class="subhead">{subhead}</p>}
+  </header>
+  <Content />
+  {cta && ctaHref && <a class="cta" href={ctaHref}>{cta}</a>}
+</BaseLayout>
