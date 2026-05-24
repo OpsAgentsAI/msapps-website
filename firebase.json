@@ -5,6 +5,16 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+      { "source": "/en/android-16", "destination": "/en/android", "type": 301 },
+      { "source": "/en/android-16/", "destination": "/en/android", "type": 301 },
+      { "source": "/en/binary-frameworks-in-swift-2", "destination": "/en/binary-frameworks-in-swift", "type": 301 },
+      { "source": "/en/binary-frameworks-in-swift-2/", "destination": "/en/binary-frameworks-in-swift", "type": 301 },
+      { "source": "/en/lottie-2", "destination": "/en/lottie", "type": 301 },
+      { "source": "/en/lottie-2/", "destination": "/en/lottie", "type": 301 },
+      { "source": "/en/version-control-best-practices-how-to-keep-your-codebase-clean-and-manageable-2", "destination": "/en/version-control-best-practices-how-to-keep-your-codebase-clean-and-manageable", "type": 301 },
+      { "source": "/en/version-control-best-practices-how-to-keep-your-codebase-clean-and-manageable-2/", "destination": "/en/version-control-best-practices-how-to-keep-your-codebase-clean-and-manageable", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**/*.@(html|htm)",
