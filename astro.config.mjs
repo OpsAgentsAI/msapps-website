@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://msapps-website-staging.web.app',
@@ -12,5 +13,8 @@ export default defineConfig({
   },
   build: {
     format: 'directory',
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

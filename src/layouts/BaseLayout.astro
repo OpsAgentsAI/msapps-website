@@ -15,6 +15,8 @@ const ogImg = ogImage ?? `${siteUrl}/og-default.png`;
 const ogType = isHomepage ? 'website' : 'article';
 const ogLocale = lang === 'he' ? 'he_IL' : 'en_US';
 
+import '../styles/global.css';
+
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -80,55 +82,9 @@ const orgSchema = {
 
     {isHomepage && <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />}
 
-    <style>
-      :root {
-        --bg: #ffffff;
-        --fg: #0a0a0a;
-        --muted: #4b5563;
-        --accent: #e8611a;
-        --accent-hover: #c2410c;
-        --max-w: 72ch;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, "Noto Sans Hebrew", sans-serif;
-        line-height: 1.65;
-        font-size: 18px;
-      }
-      main {
-        max-width: var(--max-w);
-        margin: 0 auto;
-        padding: 4rem 1.25rem 6rem;
-      }
-      header { margin-bottom: 3rem; }
-      h1 { font-size: 2.25rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.01em; }
-      h2 { font-size: 1.5rem; line-height: 1.3; margin: 2.5rem 0 0.75rem; }
-      .subhead { font-size: 1.2rem; color: var(--muted); margin: 0 0 2rem; }
-      ul { padding-inline-start: 1.5rem; }
-      li { margin-bottom: 0.5rem; }
-      a { color: var(--accent); }
-      a:hover { text-decoration: underline; }
-      .cta {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.875rem 1.75rem;
-        background: var(--accent);
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: 600;
-      }
-      .cta:hover { background: var(--accent-hover); text-decoration: none; }
-      .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-      .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: 0.5rem 1rem; background: var(--fg); color: var(--bg); z-index: 100; }
-      nav { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
-      nav a { margin-inline-end: 1rem; color: var(--muted); }
-      footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; font-size: 0.85rem; color: var(--muted); text-align: center; }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">{lang === 'he' ? 'דלגי לתוכן' : 'Skip to content'}</a>
