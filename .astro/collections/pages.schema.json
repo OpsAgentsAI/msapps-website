@@ -1,0 +1,52 @@
+{
+  "$ref": "#/definitions/pages",
+  "definitions": {
+    "pages": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string",
+          "enum": [
+            "he",
+            "en"
+          ]
+        },
+        "metaTitle": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "metaDescription": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "h1": {
+          "type": "string"
+        },
+        "subhead": {
+          "type": "string"
+        },
+        "cta": {
+          "type": "string"
+        },
+        "ctaHref": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "lang",
+        "metaTitle",
+        "metaDescription",
+        "h1"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

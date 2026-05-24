@@ -1,0 +1,82 @@
+---
+interface Props {
+  lang: 'he' | 'en';
+  metaTitle: string;
+  metaDescription: string;
+}
+
+const { lang, metaTitle, metaDescription } = Astro.props;
+const dir = lang === 'he' ? 'rtl' : 'ltr';
+const altLang = lang === 'he' ? 'en' : 'he';
+const altPath = lang === 'he' ? '/en/' : '/';
+---
+<!DOCTYPE html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="alternate" hreflang={lang} href={Astro.url.href} />
+    <link rel="alternate" hreflang={altLang} href={new URL(altPath, Astro.url).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.url).href} />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #0a0a0a;
+        --muted: #4b5563;
+        --accent: #ea580c;
+        --max-w: 72ch;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, "Noto Sans Hebrew", sans-serif;
+        line-height: 1.65;
+        font-size: 18px;
+      }
+      main {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 4rem 1.25rem 6rem;
+      }
+      header { margin-bottom: 3rem; }
+      h1 { font-size: 2.25rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.01em; }
+      h2 { font-size: 1.5rem; line-height: 1.3; margin: 2.5rem 0 0.75rem; }
+      .subhead { font-size: 1.2rem; color: var(--muted); margin: 0 0 2rem; }
+      ul { padding-inline-start: 1.5rem; }
+      li { margin-bottom: 0.5rem; }
+      a { color: var(--accent); }
+      a:hover { text-decoration: underline; }
+      .cta {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.875rem 1.75rem;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .cta:hover { background: #c2410c; text-decoration: none; }
+      nav { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+      nav a { margin-inline-end: 1rem; color: var(--muted); }
+      footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; font-size: 0.85rem; color: var(--muted); text-align: center; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <a href="/">עברית</a>
+        <a href="/en/">English</a>
+      </nav>
+      <slot />
+      <footer>
+        © {new Date().getFullYear()} MSApps · <a href="mailto:info@msapps.mobi">info@msapps.mobi</a> · <a href="https://www.linkedin.com/company/msapps-mobi/">LinkedIn</a> · <a href="https://github.com/MSApps-Mobile">GitHub</a>
+      </footer>
+    </main>
+  </body>
+</html>
