@@ -2,7 +2,7 @@
 title: "About MSApps — Israel's Boutique Dev House"
 lang: en
 metaTitle: "About MSApps — Israeli Boutique Dev House"
-metaDescription: "Founded in 2010 by Michal Shatz, MSApps is a 40-person Israeli development boutique trusted by Toyota, Phoenix Insurance, Assuta, and Cynet for 15+ years."
+metaDescription: "Founded in 2010 by Michal Shatz, MSApps is a 40-person Israeli development boutique trusted by Toyota, Phoenix Insurance, Assuta, and Cynet for 16+ years."
 h1: "The boutique that builds like an enterprise — without the politics."
 subhead: "We've been Israel's boutique development house for 15 years. Mobile, web, AI — under one roof, with the same senior team from kickoff to launch."
 cta: "Let's talk"
