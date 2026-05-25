@@ -6,13 +6,13 @@ const { lang } = Astro.props;
 
 const copy = {
   he: {
-    open: 'פתחי תפריט',
-    close: 'סגרי תפריט',
+    open: 'פתחו תפריט',
+    close: 'סגרו תפריט',
     services: 'שירותים',
     aiExpertise: 'מומחיות AI',
     cases: 'פרויקטים',
     about: 'אודות',
-    contact: 'צרי קשר',
+    contact: 'צרו קשר',
     langSwitch: 'English',
     langHref: '/en/',
     cta: 'בואו נדבר',
@@ -70,7 +70,7 @@ const copy = {
 
     const labelOpen = toggle.getAttribute('aria-label') ?? 'Open menu';
     const lang = drawer.getAttribute('data-lang') ?? 'he';
-    const labelClose = lang === 'he' ? 'סגרי תפריט' : 'Close menu';
+    const labelClose = lang === 'he' ? 'סגרו תפריט' : 'Close menu';
 
     function focusableItems(): HTMLElement[] {
       return Array.from(
