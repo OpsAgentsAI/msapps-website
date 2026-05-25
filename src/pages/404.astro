@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang: 'he' | 'en' = Astro.url.pathname.startsWith('/en') ? 'en' : 'he';
+
+const copy = {
+  he: {
+    metaTitle: '404 — הדף לא נמצא · MSApps',
+    metaDescription: 'הדף שחיפשת לא נמצא. חזרי לדף הבית או צרי איתנו קשר.',
+    heading: '404',
+    subheading: 'הדף שחיפשת לא נמצא.',
+    body: 'יכול להיות שהקישור השתנה או שהוא לא קיים יותר. מוזמנת לחזור לדף הבית, או לכתוב לנו ישירות.',
+    homeCta: '← חזרה לדף הבית',
+    contactCta: 'דברו איתנו',
+    switchLang: 'English',
+    switchHref: '/en/',
+  },
+  en: {
+    metaTitle: '404 — Page not found · MSApps',
+    metaDescription: 'The page you were looking for could not be found. Head back home or get in touch.',
+    heading: '404',
+    subheading: 'The page you were looking for could not be found.',
+    body: 'The link may have moved or no longer exists. Head back home, or write to us directly.',
+    homeCta: '← Back to home',
+    contactCta: 'Talk to us',
+    switchLang: 'עברית',
+    switchHref: '/',
+  },
+}[lang];
+
+const homeHref = lang === 'he' ? '/' : '/en/';
+const contactHref = lang === 'he' ? '/contact/' : '/en/contact/';
+---
+<BaseLayout lang={lang} metaTitle={copy.metaTitle} metaDescription={copy.metaDescription}>
+  <section style="padding:6rem 1.5rem;text-align:center;max-width:42rem;margin-inline:auto;">
+    <p style="font-size:6rem;font-weight:800;line-height:1;color:var(--color-accent,#f5a623);margin:0 0 1rem;">{copy.heading}</p>
+    <h1 style="font-size:1.75rem;margin:0 0 1rem;">{copy.subheading}</h1>
+    <p style="margin:0 0 2rem;opacity:0.85;">{copy.body}</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href={homeHref} class="text-accent" style="font-weight:600;">{copy.homeCta}</a>
+      <span style="opacity:0.5;">·</span>
+      <a href={contactHref} style="font-weight:600;">{copy.contactCta}</a>
+      <span style="opacity:0.5;">·</span>
+      <a href={copy.switchHref} hreflang={lang === 'he' ? 'en' : 'he'}>{copy.switchLang}</a>
+    </div>
+  </section>
+</BaseLayout>
