@@ -1,13 +1,15 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   lang: 'he' | 'en';
-  metaTitle: string;
-  metaDescription: string;
+  title: string;
+  description: string;
   ogImage?: string;
   isHomepage?: boolean;
 }
 
-const { lang, metaTitle, metaDescription, ogImage, isHomepage = false } = Astro.props;
+const { lang, title, description, ogImage, isHomepage = false } = Astro.props;
 const dir = lang === 'he' ? 'rtl' : 'ltr';
 const siteUrl = 'https://msapps-website-staging.web.app';
 const canonical = Astro.url.href;
@@ -15,14 +17,12 @@ const ogImg = ogImage ?? `${siteUrl}/og-default.png`;
 const ogType = isHomepage ? 'website' : 'article';
 const ogLocale = lang === 'he' ? 'he_IL' : 'en_US';
 
-import '../styles/global.css';
-
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'MSApps Development House',
   url: 'https://msapps.mobi',
-  logo: 'https://msapps.mobi/logo.png',
+  logo: 'https://msapps.mobi/static/img/brand/msapps-logo-white.png',
   description: lang === 'he'
     ? 'בית פיתוח בוטיק ישראלי המתמחה באפליקציות מובייל, ווב, בינה מלאכותית והרחבת צוותים.'
     : 'Israeli boutique development house specializing in mobile apps, web applications, AI automation, and team augmentation.',
@@ -59,16 +59,16 @@ const orgSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{metaTitle}</title>
-    <meta name="description" content={metaDescription} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
     <link rel="alternate" hreflang="he" href={lang === 'he' ? canonical : new URL('/', siteUrl).href} />
     <link rel="alternate" hreflang="en" href={lang === 'en' ? canonical : new URL('/en/', siteUrl).href} />
     <link rel="alternate" hreflang="x-default" href={new URL('/en/', siteUrl).href} />
 
-    <meta property="og:title" content={metaTitle} />
-    <meta property="og:description" content={metaDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:image" content={ogImg} />
@@ -76,31 +76,18 @@ const orgSchema = {
     <meta property="og:locale" content={ogLocale} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={metaTitle} />
-    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImg} />
 
     {isHomepage && <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap" />
   </head>
-  <body class="prose-page">
+  <body class="bg-dark-base text-white">
     <a href="#main-content" class="skip-link">{lang === 'he' ? 'דלגי לתוכן' : 'Skip to content'}</a>
-    <main>
-      <nav aria-label={lang === 'he' ? 'שפות' : 'Languages'}>
-        <a href={lang === 'he' ? '/' : '/en/'} class="text-accent font-semibold">{lang === 'he' ? '← חזרה לבית' : '← Back to home'}</a>
-        <span style="margin-inline:1rem;">·</span>
-        <a href="/" hreflang="he" lang="he">עברית</a>
-        <a href="/en/" hreflang="en" lang="en">English</a>
-      </nav>
-      <div id="main-content">
-        <slot />
-      </div>
-      <footer>
-        © {new Date().getFullYear()} MSApps · <a href="mailto:info@msapps.mobi">info@msapps.mobi</a> · <a href="https://www.linkedin.com/company/msapps-mobi/">LinkedIn</a> · <a href="https://github.com/MSApps-Mobile">GitHub</a>
-      </footer>
-    </main>
+    <slot />
   </body>
 </html>

@@ -1,17 +1,408 @@
 ---
-import { getEntry, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const page = await getEntry('pages', 'homepage-en');
-if (!page) throw new Error('homepage-en content missing');
-const { Content } = await render(page);
-const { metaTitle, metaDescription, h1, subhead, cta, ctaHref } = page.data;
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
 ---
-<BaseLayout lang="en" metaTitle={metaTitle} metaDescription={metaDescription} isHomepage={true}>
-  <header>
-    <h1>{h1}</h1>
-    {subhead && <p class="subhead">{subhead}</p>}
-  </header>
-  <Content />
-  {cta && ctaHref && <a class="cta" href={ctaHref}>{cta}</a>}
-</BaseLayout>
+<MarketingLayout
+  lang="en"
+  title="MSApps - AI-Powered Digital Products & Solutions"
+  description="MSApps: AI-native software development company building intelligent digital products with Claude AI, custom agents, and cutting-edge mobile & IoT solutions."
+  isHomepage={true}
+>
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <a href="/en/" class="flex items-center" aria-label="MSApps home">
+        <img src="/static/img/brand/msapps-logo-white.png" alt="MSApps — Development House" class="h-10 w-auto" />
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#services" class="hover:text-accent">Services</a>
+        <a href="#ai-expertise" class="hover:text-accent">AI Expertise</a>
+        <a href="#case-studies" class="hover:text-accent">Case Studies</a>
+        <a href="#about" class="hover:text-accent">About</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
+        <a href="/" class="hover:text-accent" hreflang="he" lang="he">עברית</a>
+      </div>
+      <a href="#contact" class="btn-primary px-6 py-2 rounded-lg text-sm">Get Started</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div class="ai-badge">🚀 AI-Native Software Development</div>
+          <h1 class="hero-title">Build Intelligent Digital Products That Think</h1>
+          <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+            MSApps pioneers AI-first development with Claude, custom agents, and cutting-edge mobile solutions. From iOS to IoT, we engineer the future of intelligent applications.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#contact" class="btn-primary px-8 py-3 rounded-lg font-semibold text-center">Start Your Project</a>
+            <a href="#services" class="btn-secondary px-8 py-3 rounded-lg font-semibold text-center">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-dark-alt py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-accent">Services</h2>
+        <p class="section-subtitle">
+          Comprehensive AI and development solutions tailored to transform your vision into intelligent, scalable products.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C7.37 2 2 7.37 2 14s5.37 12 12 12 12-5.37 12-12S20.63 2 14 2zm0 22c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10zm3.5-9c.83 0 1.5-.67 1.5-1.5S18.33 12 17.5 12 16 12.67 16 13.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S11.33 12 10.5 12 9 12.67 9 13.5 9.67 15 10.5 15zm3.5 6c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.77 3.5-5.11 3.5z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">AI Agents & Automation</h3>
+            <p class="text-gray-400">Custom AI agents, Claude API integration, intelligent workflow automation, and autonomous decision-making systems.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 9.5c0 .83-.67 1.5-1.5 1.5S11 13.33 11 12.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm4 4c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0-7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">LLM Integration</h3>
+            <p class="text-gray-400">Custom LLM solutions, RAG pipelines, fine-tuning, prompt optimization, and enterprise AI infrastructure.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 2H7c-1.1 0-2 .9-2 2v20c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 21c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm5-4H7V4h10v15z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">iOS Development</h3>
+            <p class="text-gray-400">Native iOS apps with Swift and SwiftUI. High-performance, user-centric mobile experiences for iPhone and iPad.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 1H8c-1.66 0-3 1.34-3 3v10c0 1.66 1.34 3 3 3h1v3c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-3h2v3c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-3h1c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-4 14H9c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1zm4-4H8V4h12v7z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Android Development</h3>
+            <p class="text-gray-400">Kotlin and Jetpack Compose native Android apps. Scalable, modern applications with optimal performance.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 17.5L6 12l5.5-5.5-1.42-1.42L3.16 12l7.92 7.92 1.42-1.42zM16.5 17.5l1.42-1.42L25.84 12l-7.92-7.92L16.5 5.5 22 12l-5.5 5.5z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Full Stack & Web</h3>
+            <p class="text-gray-400">React, Node.js, cloud architecture. Modern web platforms built for scale, performance, and user engagement.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13h-2v-2h2v2zm4-6h-1V5c0-.55-.45-1-1-1h-1c-.55 0-1 .45-1 1v2h-2V5c0-.55-.45-1-1-1h-1c-.55 0-1 .45-1 1v2h-2V5c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 14H6V12h16v9z" fill="#111111"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">IoT & Connected Devices</h3>
+            <p class="text-gray-400">BLE, WiFi integration, embedded systems, and hardware connectivity. Smart devices powered by intelligent software.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Expertise Section -->
+    <section id="ai-expertise" class="bg-dark-base py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="ai-badge">Cutting-Edge AI Research</div>
+            <h2 class="section-title">AI Native from the Ground Up</h2>
+            <p class="section-subtitle">
+              MSApps is built for the AI era. We don't just use AI—we architect it into every solution.
+            </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>Claude Partnership Ready:</strong> Certified development with advanced Claude API integration</span></li>
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>MCP Server Development:</strong> Custom Model Context Protocol implementations</span></li>
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>AI Security & Ethics:</strong> Responsible AI practices, alignment research</span></li>
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>Computer Vision:</strong> Advanced image processing and ML pipelines</span></li>
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>Natural Language Processing:</strong> Text understanding, generation, and semantic analysis</span></li>
+              <li class="flex items-start"><span class="text-accent mr-3">✓</span><span><strong>Autonomous Agents:</strong> Multi-step reasoning and decision-making systems</span></li>
+            </ul>
+            <a href="#contact" class="btn-primary px-8 py-3 rounded-lg font-semibold inline-block">Explore AI Solutions</a>
+          </div>
+          <div class="bg-dark-alt rounded-lg p-8 border border-accent border-opacity-20">
+            <h3 class="text-2xl font-bold mb-6">Core AI Capabilities</h3>
+            <div class="space-y-3">
+              <div><p class="text-sm font-semibold text-accent mb-2">Claude API & LLMs</p><div class="w-full bg-opacity-20 bg-accent rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 95%"></div></div></div>
+              <div><p class="text-sm font-semibold text-accent mb-2">Prompt Engineering</p><div class="w-full bg-opacity-20 bg-accent rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 90%"></div></div></div>
+              <div><p class="text-sm font-semibold text-accent mb-2">RAG & Knowledge Systems</p><div class="w-full bg-opacity-20 bg-accent rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 88%"></div></div></div>
+              <div><p class="text-sm font-semibold text-accent mb-2">Autonomous Agents</p><div class="w-full bg-opacity-20 bg-accent rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 85%"></div></div></div>
+              <div><p class="text-sm font-semibold text-accent mb-2">Computer Vision & ML</p><div class="w-full bg-opacity-20 bg-accent rounded-full h-2"><div class="bg-accent h-2 rounded-full" style="width: 82%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certification Placeholder -->
+    <section class="bg-dark-alt py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-center space-x-8">
+          <div class="text-center">
+            <p class="text-sm text-gray-400 mb-4">Certified Partner</p>
+            <div class="w-32 h-32 border-2 border-dashed border-accent border-opacity-40 rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <p class="text-accent font-bold text-sm">Anthropic</p>
+                <p class="text-gray-500 text-xs">Claude Certified</p>
+                <p class="text-gray-500 text-xs mt-1">Badge Placeholder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="bg-dark-base py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="section-title">Trusted by 60+ Leading Companies</h2>
+          <p class="section-subtitle text-center max-w-2xl mx-auto">
+            Leading enterprises and innovators across healthcare, cybersecurity, finance, and beyond partner with MSApps.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 clients-flex">
+          <div class="client-badge"><img src="/static/img/clients/partner.jpg" alt="Partner" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/matrix.jpg" alt="Matrix" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/autodesk.jpg" alt="Autodesk" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/theranica.jpg" alt="Theranica" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/personetics.jpg" alt="Personetics" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/bluesnap.jpg" alt="BlueSnap" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/tau.jpg" alt="Tel Aviv University" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/zemingo.jpg" alt="Zemingo" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/pima.jpg" alt="Pima" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/fairfly.jpg" alt="FairFly" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/ananey.jpg" alt="Ananey" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/sessme.jpg" alt="SessMe" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/commit.jpg" alt="Commit" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/bestbrilliance.jpg" alt="Best Brilliance" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/devinstitute.jpg" alt="Developers Institute" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/helicon.jpg" alt="Helicon Books" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/mycheck.jpg" alt="myCheck" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/drippler.jpg" alt="Drippler" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/msbit.jpg" alt="MSbit" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/moblers.jpg" alt="Moblers" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/hisep.jpg" alt="Hisep" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/pairsonal.jpg" alt="Pairsonal" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/wannabiz.jpg" alt="WannaBiz" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/inmanage.jpg" alt="InManage" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/aman.jpg" alt="Aman" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/streetsmart.jpg" alt="StreetSM4RT" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/myselffit.jpg" alt="MySelfFit" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/donae.jpg" alt="Donae" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/moblin.jpg" alt="Moblin" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/sponser.jpg" alt="Sponser" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/zigit.jpg" alt="ZIGIT" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/talkitt.jpg" alt="Talkitt" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/pajonos.jpg" alt="Pajonos" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/medness.jpg" alt="Medness SM" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/cynet.png" alt="Cynet" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/bookaway.png" alt="Bookaway" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/applicaster.png" alt="Applicaster" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/switchbee.png" alt="SwitchBee" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/prospera.png" alt="Prospera" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/odysii.png" alt="Odysii" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/anyapp.png" alt="AnyApp" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/appmyday.png" alt="AppMyDay" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/hookapps.png" alt="HookApps" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/mobikeys.png" alt="MobiKeys" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/codengine.png" alt="CodEngine" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/codeoasis.png" alt="CodeOasis" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/ideodigital.png" alt="Ideo Digital" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/freshconcept.png" alt="Fresh Concept" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/webtech.png" alt="WebTech" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/zangula.png" alt="Zangula" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/chabadhertz.png" alt="Chabad Herzliya" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/donde.png" alt="Donde" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/stern.png" alt="Stern" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/ofir.png" alt="Ofir" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/sb.png" alt="SB" loading="lazy" /></div>
+          <div class="client-badge"><img src="/static/img/clients/one.png" alt="One" loading="lazy" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="bg-dark-alt py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-accent">Case Studies</h2>
+        <p class="section-subtitle">Showcasing innovation, impact, and technical excellence across diverse industries.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div class="case-study-card">
+            <div class="case-study-tag">Cybersecurity</div>
+            <h3 class="text-2xl font-bold mb-4">CynetAuthenticator</h3>
+            <p class="text-gray-400 mb-6">Advanced multi-factor authentication platform built with cutting-edge security protocols. MSApps engineered the mobile client for iOS and Android with seamless UX and enterprise-grade encryption.</p>
+            <div class="space-y-2">
+              <p class="text-sm"><span class="text-accent font-semibold">Tech Stack:</span> Swift, Kotlin, Cloud Infrastructure</p>
+              <p class="text-sm"><span class="text-accent font-semibold">Impact:</span> Deployed to 10,000+ enterprise users</p>
+            </div>
+          </div>
+          <div class="case-study-card">
+            <div class="case-study-tag">Healthcare</div>
+            <h3 class="text-2xl font-bold mb-4">Theranica Platform</h3>
+            <p class="text-gray-400 mb-6">Connected healthcare ecosystem for managing chronic conditions. Integrated IoT wearables, real-time data processing, and AI-driven insights for patient wellness.</p>
+            <div class="space-y-2">
+              <p class="text-sm"><span class="text-accent font-semibold">Tech Stack:</span> React, Node.js, BLE, ML Pipelines</p>
+              <p class="text-sm"><span class="text-accent font-semibold">Impact:</span> Improved patient compliance by 40%</p>
+            </div>
+          </div>
+          <div class="case-study-card">
+            <div class="case-study-tag">IoT</div>
+            <h3 class="text-2xl font-bold mb-4">Beera Station</h3>
+            <p class="text-gray-400 mb-6">Smart beverage dispensing system powered by MSApps IoT architecture. Custom embedded firmware, WiFi connectivity, and cloud-based inventory management.</p>
+            <div class="space-y-2">
+              <p class="text-sm"><span class="text-accent font-semibold">Tech Stack:</span> Embedded C, WiFi, Cloud APIs</p>
+              <p class="text-sm"><span class="text-accent font-semibold">Impact:</span> 500+ units deployed nationwide</p>
+            </div>
+          </div>
+          <div class="case-study-card">
+            <div class="case-study-tag">Insurance</div>
+            <h3 class="text-2xl font-bold mb-4">Phoenix Young Driver</h3>
+            <p class="text-gray-400 mb-6">Telematics insurance platform for young drivers. MSApps built the full mobile app with real-time telemetry tracking, behavioral analytics, and gamified safety incentives.</p>
+            <div class="space-y-2">
+              <p class="text-sm"><span class="text-accent font-semibold">Tech Stack:</span> Swift, Kotlin, Real-time Analytics</p>
+              <p class="text-sm"><span class="text-accent font-semibold">Impact:</span> 20,000+ active users</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-dark-base py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 class="section-title text-accent">About MSApps</h2>
+            <div class="space-y-6 text-gray-400">
+              <p>Founded in 2010, MSApps emerged from a vision to build exceptional digital products. Over 16 years, we've evolved from a mobile-first agency into an AI-native software development powerhouse.</p>
+              <p>Based in Herzliya, Israel, we've partnered with 60+ companies across healthcare, finance, cybersecurity, insurance, travel, and education sectors.</p>
+              <p>Our unique outsourcing model combines deep technical expertise with genuine partnership. We don't just deliver code—we collaborate to solve complex problems and drive innovation.</p>
+              <p>Today, MSApps specializes in building AI-first products. From Claude API integration to autonomous agents and custom LLM implementations, we're engineering the next generation of intelligent applications.</p>
+            </div>
+            <div class="mt-10 grid grid-cols-2 gap-8">
+              <div>
+                <p class="text-3xl font-bold text-accent">16+</p>
+                <p class="text-sm text-gray-400">Years of Excellence</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold text-accent">60+</p>
+                <p class="text-sm text-gray-400">Enterprise Clients</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-dark-alt rounded-lg p-8 border border-accent border-opacity-20">
+              <h3 class="text-xl font-bold text-accent mb-4">Our Philosophy</h3>
+              <p class="text-gray-400">We believe technology should amplify human potential. Every product we build is designed with intention: to solve real problems, delight users, and create lasting value.</p>
+            </div>
+            <div class="bg-dark-alt rounded-lg p-8 border border-accent border-opacity-20">
+              <h3 class="text-xl font-bold text-accent mb-4">Why Partner with MSApps</h3>
+              <ul class="space-y-3 text-gray-400">
+                <li class="flex items-start"><span class="text-accent mr-3">→</span><span>AI expertise meets proven mobile & web excellence</span></li>
+                <li class="flex items-start"><span class="text-accent mr-3">→</span><span>End-to-end ownership from design to deployment</span></li>
+                <li class="flex items-start"><span class="text-accent mr-3">→</span><span>Collaborative partnership, not just vendors</span></li>
+                <li class="flex items-start"><span class="text-accent mr-3">→</span><span>Proven track record with enterprises and startups</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-dark-alt py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 class="section-title text-accent">Let's Build Together</h2>
+            <p class="section-subtitle mb-12">Ready to transform your vision into an intelligent product? Get in touch with our team.</p>
+            <div class="space-y-8">
+              <div>
+                <p class="text-sm text-gray-400 font-semibold mb-2">Address</p>
+                <p class="text-white">Galgalei HaPlada 6<br />Herzliya, Israel</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400 font-semibold mb-2">Phone</p>
+                <a href="tel:+972554338803" class="text-accent hover:text-yellow-400">055-4338803</a>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400 font-semibold mb-2">Email</p>
+                <a href="mailto:info@msapps.mobi" class="text-accent hover:text-yellow-400">info@msapps.mobi</a>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400 font-semibold mb-3">Quick Connect</p>
+                <div class="flex space-x-4">
+                  <a href="https://wa.me/972544255549" target="_blank" rel="noopener noreferrer" class="btn-secondary px-4 py-2 rounded-lg text-sm">WhatsApp</a>
+                  <a href="https://www.facebook.com/msapps.mobi" target="_blank" rel="noopener noreferrer" class="btn-secondary px-4 py-2 rounded-lg text-sm">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form class="space-y-6" action="mailto:info@msapps.mobi" method="post" enctype="text/plain">
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2" for="name-en">Full Name</label>
+                <input id="name-en" name="name" type="text" required class="input-field w-full" placeholder="Your name" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2" for="email-en">Email</label>
+                <input id="email-en" name="email" type="email" required class="input-field w-full" placeholder="your@email.com" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2" for="phone-en">Phone</label>
+                <input id="phone-en" name="phone" type="tel" required class="input-field w-full" placeholder="+972-XX-XXXX" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2" for="message-en">Message</label>
+                <textarea id="message-en" name="message" rows="5" required class="input-field w-full resize-none" placeholder="Tell us about your project..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold">Send Message</button>
+              <p class="text-xs text-gray-500 text-center">We respect your privacy. Your information is safe with us.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-50 border-t border-accent border-opacity-10 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="mb-4">
+            <img src="/static/img/brand/msapps-logo-white.png" alt="MSApps — Development House" class="h-10 w-auto" />
+          </div>
+          <p class="text-sm text-gray-400">AI-native software development. Building intelligent digital products since 2010.</p>
+        </div>
+        <div>
+          <p class="font-semibold text-white mb-4">Product</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#case-studies" class="footer-link">Case Studies</a></li>
+            <li><a href="#about" class="footer-link">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-white mb-4">Company</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+            <li><a href="https://www.facebook.com/msapps.mobi" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a></li>
+            <li><a href="https://wa.me/972544255549" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-white mb-4">Contact</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:info@msapps.mobi" class="footer-link">info@msapps.mobi</a></li>
+            <li><a href="tel:+972554338803" class="footer-link">055-4338803</a></li>
+            <li class="text-gray-400">Herzliya, Israel</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <p>&copy; 2026 MSApps. All rights reserved.</p>
+        <p>Engineered with intelligence. Built with purpose.</p>
+      </div>
+    </div>
+  </footer>
+</MarketingLayout>
