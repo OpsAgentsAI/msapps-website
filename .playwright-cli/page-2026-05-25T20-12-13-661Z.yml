@@ -1,0 +1,383 @@
+- generic [active] [ref=e1]:
+  - link "דלגי לתוכן" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "MSApps בית" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "MSApps — בית פיתוח" [ref=e6]
+      - generic [ref=e7]:
+        - link "שירותים" [ref=e8] [cursor=pointer]:
+          - /url: "#services"
+        - link "מומחיות AI" [ref=e9] [cursor=pointer]:
+          - /url: "#ai-expertise"
+        - link "פרויקטים" [ref=e10] [cursor=pointer]:
+          - /url: "#case-studies"
+        - link "אודות" [ref=e11] [cursor=pointer]:
+          - /url: "#about"
+        - link "צרי קשר" [ref=e12] [cursor=pointer]:
+          - /url: "#contact"
+        - link "English" [ref=e13] [cursor=pointer]:
+          - /url: /en/
+      - link "בואי נדבר" [ref=e14] [cursor=pointer]:
+        - /url: "#contact"
+  - main [ref=e15]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: 🚀 פיתוח AI-Native
+      - heading "בית הפיתוח שבונה את המוצרים שמשנים את העסק שלך" [level=1] [ref=e20]
+      - paragraph [ref=e21]: MSApps מובילה פיתוח AI-first עם Claude, סוכנים מותאמים אישית ופתרונות מובייל מתקדמים. מ-iOS עד IoT — אנחנו מהנדסות את הדור הבא של מוצרים חכמים.
+      - generic [ref=e22]:
+        - link "התחילי את הפרויקט" [ref=e23] [cursor=pointer]:
+          - /url: "#contact"
+        - link "לכל השירותים" [ref=e24] [cursor=pointer]:
+          - /url: "#services"
+    - generic [ref=e26]:
+      - heading "שירותים" [level=2] [ref=e27]
+      - paragraph [ref=e28]: פתרונות AI ופיתוח מקצה לקצה, מותאמים אישית להפיכת החזון שלך למוצר חכם וניתן להרחבה.
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - img [ref=e32]
+          - heading "סוכני AI ואוטומציה" [level=3] [ref=e34]
+          - paragraph [ref=e35]: סוכנים אוטונומיים מותאמים, אינטגרציית Claude API, אוטומציית תהליכי עבודה חכמים ומערכות החלטה אוטונומיות.
+        - generic [ref=e36]:
+          - img [ref=e38]
+          - heading "אינטגרציית LLM" [level=3] [ref=e40]
+          - paragraph [ref=e41]: פתרונות LLM מותאמים, צינורות RAG, fine-tuning, אופטימיזציית prompt ותשתית AI ארגונית.
+        - generic [ref=e42]:
+          - img [ref=e44]
+          - heading "פיתוח iOS" [level=3] [ref=e46]
+          - paragraph [ref=e47]: אפליקציות iOS נטיביות ב-Swift ו-SwiftUI. חוויות מובייל מהירות וממוקדות-משתמש לאייפון ולאייפד.
+        - generic [ref=e48]:
+          - img [ref=e50]
+          - heading "פיתוח Android" [level=3] [ref=e52]
+          - paragraph [ref=e53]: אפליקציות Android נטיביות ב-Kotlin ו-Jetpack Compose. אפליקציות מודרניות, ניתנות להרחבה וביצועים מיטביים.
+        - generic [ref=e54]:
+          - img [ref=e56]
+          - heading "Full Stack וווב" [level=3] [ref=e58]
+          - paragraph [ref=e59]: React, Node.js, ארכיטקטורת ענן. פלטפורמות ווב מודרניות שבונות לסקייל, ביצועים ומעורבות משתמש.
+        - generic [ref=e60]:
+          - img [ref=e62]
+          - heading "IoT ומכשירים מחוברים" [level=3] [ref=e64]
+          - paragraph [ref=e65]: BLE, אינטגרציית WiFi, מערכות משובצות וחיבוריות חומרה. מכשירים חכמים שמופעלים על-ידי תוכנה אינטליגנטית.
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]: מחקר AI מתקדם
+        - heading "AI-Native מהיסוד" [level=2] [ref=e71]
+        - paragraph [ref=e72]: MSApps נבנתה לעידן ה-AI. אנחנו לא רק משתמשות ב-AI — אנחנו מארכיטקטות אותו בכל פתרון.
+        - list [ref=e73]:
+          - listitem [ref=e74]:
+            - generic [ref=e75]: ✓
+            - generic [ref=e76]:
+              - strong [ref=e77]: "שותפות Claude:"
+              - text: פיתוח מוסמך עם אינטגרציית Claude API מתקדמת
+          - listitem [ref=e78]:
+            - generic [ref=e79]: ✓
+            - generic [ref=e80]:
+              - strong [ref=e81]: "פיתוח שרתי MCP:"
+              - text: מימושי Model Context Protocol מותאמים אישית
+          - listitem [ref=e82]:
+            - generic [ref=e83]: ✓
+            - generic [ref=e84]:
+              - strong [ref=e85]: "אבטחה ואתיקה ב-AI:"
+              - text: מתודולוגיית SOSA — פרקטיקות AI אחראיות
+          - listitem [ref=e86]:
+            - generic [ref=e87]: ✓
+            - generic [ref=e88]:
+              - strong [ref=e89]: "ראיית מחשב:"
+              - text: עיבוד תמונה מתקדם ו-pipeline למידת מכונה
+          - listitem [ref=e90]:
+            - generic [ref=e91]: ✓
+            - generic [ref=e92]:
+              - strong [ref=e93]: "עיבוד שפה טבעית:"
+              - text: הבנה, יצירה וניתוח סמנטי של טקסט
+          - listitem [ref=e94]:
+            - generic [ref=e95]: ✓
+            - generic [ref=e96]:
+              - strong [ref=e97]: "סוכנים אוטונומיים:"
+              - text: מערכות חשיבה רב-שלבית וקבלת החלטות
+        - link "פתרונות AI שלנו" [ref=e98] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e99]:
+        - heading "יכולות AI מרכזיות" [level=3] [ref=e100]
+        - generic [ref=e101]:
+          - paragraph [ref=e103]: Claude API ו-LLMs
+          - paragraph [ref=e107]: Prompt Engineering
+          - paragraph [ref=e111]: RAG ומערכות ידע
+          - paragraph [ref=e115]: סוכנים אוטונומיים
+          - paragraph [ref=e119]: ראיית מחשב ו-ML
+    - generic [ref=e125]:
+      - paragraph [ref=e126]: שותפה מוסמכת
+      - generic [ref=e128]:
+        - paragraph [ref=e129]: Anthropic
+        - paragraph [ref=e130]: Claude Certified
+        - paragraph [ref=e131]: Badge Placeholder
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - heading "60+ חברות סומכות עלינו" [level=2] [ref=e135]
+        - paragraph [ref=e136]: ארגונים מובילים ומחדשים בבריאות, סייבר, פיננסים ועוד — בוחרים ב-MSApps כשותפה.
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - img "Partner"
+        - generic [ref=e139]:
+          - img "Matrix"
+        - generic [ref=e140]:
+          - img "Autodesk"
+        - generic [ref=e141]:
+          - img "Theranica"
+        - generic [ref=e142]:
+          - img "Personetics"
+        - generic [ref=e143]:
+          - img "BlueSnap"
+        - generic [ref=e144]:
+          - img "אוניברסיטת תל אביב"
+        - generic [ref=e145]:
+          - img "Zemingo"
+        - generic [ref=e146]:
+          - img "פימה"
+        - generic [ref=e147]:
+          - img "FairFly"
+        - generic [ref=e148]:
+          - img "עננעי"
+        - generic [ref=e149]:
+          - img "SessMe"
+        - generic [ref=e150]:
+          - img "קומיט"
+        - generic [ref=e151]:
+          - img "Best Brilliance"
+        - generic [ref=e152]:
+          - img "המכון לפיתוח מפתחים"
+        - generic [ref=e153]:
+          - img "הליקון בוקס"
+        - generic [ref=e154]:
+          - img "myCheck"
+        - generic [ref=e155]:
+          - img "Drippler"
+        - generic [ref=e156]:
+          - img "MSbit"
+        - generic [ref=e157]:
+          - img "Moblers"
+        - generic [ref=e158]:
+          - img "Hisep"
+        - generic [ref=e159]:
+          - img "Pairsonal"
+        - generic [ref=e160]:
+          - img "WannaBiz"
+        - generic [ref=e161]:
+          - img "InManage"
+        - generic [ref=e162]:
+          - img "אמן"
+        - generic [ref=e163]:
+          - img "StreetSM4RT"
+        - generic [ref=e164]:
+          - img "MySelfFit"
+        - generic [ref=e165]:
+          - img "Donae"
+        - generic [ref=e166]:
+          - img "Moblin"
+        - generic [ref=e167]:
+          - img "ספונסר"
+        - generic [ref=e168]:
+          - img "ZIGIT"
+        - generic [ref=e169]:
+          - img "Talkitt"
+        - generic [ref=e170]:
+          - img "Pajonos"
+        - generic [ref=e171]:
+          - img "Medness SM"
+        - generic [ref=e172]:
+          - img "Cynet"
+        - generic [ref=e173]:
+          - img "Bookaway"
+        - generic [ref=e174]:
+          - img "Applicaster"
+        - generic [ref=e175]:
+          - img "SwitchBee"
+        - generic [ref=e176]:
+          - img "Prospera"
+        - generic [ref=e177]:
+          - img "Odysii"
+        - generic [ref=e178]:
+          - img "AnyApp"
+        - generic [ref=e179]:
+          - img "AppMyDay"
+        - generic [ref=e180]:
+          - img "HookApps"
+        - generic [ref=e181]:
+          - img "MobiKeys"
+        - generic [ref=e182]:
+          - img "CodEngine"
+        - generic [ref=e183]:
+          - img "CodeOasis"
+        - generic [ref=e184]:
+          - img "Ideo Digital"
+        - generic [ref=e185]:
+          - img "Fresh Concept"
+        - generic [ref=e186]:
+          - img "WebTech"
+        - generic [ref=e187]:
+          - img "Zangula"
+        - generic [ref=e188]:
+          - img "חב״ד הרצליה"
+        - generic [ref=e189]:
+          - img "Donde"
+        - generic [ref=e190]:
+          - img "שטרן"
+        - generic [ref=e191]:
+          - img "אופיר"
+        - generic [ref=e192]:
+          - img "SB"
+        - generic [ref=e193]:
+          - img "One"
+    - generic [ref=e195]:
+      - heading "פרויקטים נבחרים" [level=2] [ref=e196]
+      - paragraph [ref=e197]: חדשנות, אימפקט ומצוינות טכנית במגוון תעשיות.
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - generic [ref=e200]: סייבר
+          - heading "CynetAuthenticator" [level=3] [ref=e201]
+          - paragraph [ref=e202]: פלטפורמת אימות רב-שלבית מתקדמת עם פרוטוקולי אבטחה חדישים. MSApps פיתחה את לקוח המובייל ל-iOS ו-Android עם חוויית משתמש חלקה והצפנה ארגונית.
+          - generic [ref=e203]:
+            - paragraph [ref=e204]: "סטאק: Swift, Kotlin, תשתית ענן"
+            - paragraph [ref=e205]: "אימפקט: נפרס ל-10,000+ משתמשים ארגוניים"
+        - generic [ref=e206]:
+          - generic [ref=e207]: בריאות
+          - heading "פלטפורמת Theranica" [level=3] [ref=e208]
+          - paragraph [ref=e209]: אקוסיסטם בריאות מחובר לניהול מצבים כרוניים. אינטגרציה של wearables IoT, עיבוד נתונים בזמן אמת ותובנות מבוססות-AI לרווחת המטופלים.
+          - generic [ref=e210]:
+            - paragraph [ref=e211]: "סטאק: React, Node.js, BLE, ML Pipelines"
+            - paragraph [ref=e212]: "אימפקט: שיפור היענות מטופלים ב-40%"
+        - generic [ref=e213]:
+          - generic [ref=e214]: IoT
+          - heading "Beera Station" [level=3] [ref=e215]
+          - paragraph [ref=e216]: מערכת חכמה לחלוקת משקאות, מבוססת ארכיטקטורת IoT של MSApps. קושחה משובצת מותאמת, חיבוריות WiFi וניהול מלאי מבוסס-ענן.
+          - generic [ref=e217]:
+            - paragraph [ref=e218]: "סטאק: Embedded C, WiFi, Cloud APIs"
+            - paragraph [ref=e219]: "אימפקט: 500+ יחידות פרוסות ברחבי הארץ"
+        - generic [ref=e220]:
+          - generic [ref=e221]: ביטוח
+          - heading "הפניקס Young Driver" [level=3] [ref=e222]
+          - paragraph [ref=e223]: פלטפורמת ביטוח טלמטית לנהגים צעירים. MSApps בנתה את אפליקציית המובייל המלאה עם מעקב טלמטריה בזמן אמת, אנליטיקה התנהגותית ותמריצי בטיחות.
+          - generic [ref=e224]:
+            - paragraph [ref=e225]: "סטאק: Swift, Kotlin, אנליטיקה בזמן אמת"
+            - paragraph [ref=e226]: "אימפקט: 20,000+ משתמשים פעילים"
+    - generic [ref=e229]:
+      - generic [ref=e230]:
+        - heading "אודות MSApps" [level=2] [ref=e231]
+        - generic [ref=e232]:
+          - paragraph [ref=e233]: נוסדה ב-2010, MSApps צמחה מתוך חזון לבנות מוצרים דיגיטליים יוצאי דופן. במהלך 16 שנה, התפתחנו מסוכנות מובייל-first לבית פיתוח AI-native מוביל.
+          - paragraph [ref=e234]: הבסיס שלנו בהרצליה — שותפויות עם 60+ חברות בבריאות, פיננסים, סייבר, ביטוח, תיירות וחינוך.
+          - paragraph [ref=e235]: המודל הייחודי שלנו משלב מומחיות טכנית עמוקה עם שותפות אמיתית. אנחנו לא רק מספקות קוד — אנחנו משתפות פעולה בפתרון בעיות מורכבות ובקידום חדשנות.
+          - paragraph [ref=e236]: היום, MSApps מתמחה בבניית מוצרים AI-first. מאינטגרציית Claude API ועד סוכנים אוטונומיים ומימושי LLM מותאמים — אנחנו מהנדסות את הדור הבא של אפליקציות חכמות.
+        - generic [ref=e237]:
+          - generic [ref=e238]:
+            - paragraph [ref=e239]: 16+
+            - paragraph [ref=e240]: שנות מצוינות
+          - generic [ref=e241]:
+            - paragraph [ref=e242]: 60+
+            - paragraph [ref=e243]: לקוחות ארגוניים
+      - generic [ref=e244]:
+        - generic [ref=e245]:
+          - heading "הפילוסופיה שלנו" [level=3] [ref=e246]
+          - paragraph [ref=e247]: "אנחנו מאמינות שטכנולוגיה צריכה להעצים את הפוטנציאל האנושי. כל מוצר שאנחנו בונות תוכנן בכוונה: לפתור בעיות אמיתיות, לרגש משתמשים וליצור ערך מתמשך."
+        - generic [ref=e248]:
+          - heading "למה לבחור ב-MSApps" [level=3] [ref=e249]
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - generic [ref=e252]: →
+              - generic [ref=e253]: מומחיות AI שפוגשת מצוינות מוכחת במובייל ו-ווב
+            - listitem [ref=e254]:
+              - generic [ref=e255]: →
+              - generic [ref=e256]: בעלות מקצה לקצה — מעיצוב ועד פריסה
+            - listitem [ref=e257]:
+              - generic [ref=e258]: →
+              - generic [ref=e259]: שותפות, לא רק ספקיות שירות
+            - listitem [ref=e260]:
+              - generic [ref=e261]: →
+              - generic [ref=e262]: היסטוריה מוכחת עם ארגונים וסטארטאפים
+    - generic [ref=e265]:
+      - generic [ref=e266]:
+        - heading "בואי נבנה ביחד" [level=2] [ref=e267]
+        - paragraph [ref=e268]: מוכנה להפוך את החזון למוצר חכם? צרי איתנו קשר.
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - paragraph [ref=e271]: כתובת
+            - paragraph [ref=e272]:
+              - text: גלגלי הפלדה 6
+              - text: הרצליה
+          - generic [ref=e273]:
+            - paragraph [ref=e274]: טלפון
+            - link "055-4338803" [ref=e275] [cursor=pointer]:
+              - /url: tel:+972554338803
+          - generic [ref=e276]:
+            - paragraph [ref=e277]: אימייל
+            - link "info@msapps.mobi" [ref=e278] [cursor=pointer]:
+              - /url: mailto:info@msapps.mobi
+          - generic [ref=e279]:
+            - paragraph [ref=e280]: חיבור מהיר
+            - generic [ref=e281]:
+              - link "WhatsApp" [ref=e282] [cursor=pointer]:
+                - /url: https://wa.me/972544255549
+              - link "Facebook" [ref=e283] [cursor=pointer]:
+                - /url: https://www.facebook.com/msapps.mobi
+      - generic [ref=e285]:
+        - generic [ref=e286]:
+          - generic [ref=e287]: שם מלא
+          - textbox "שם מלא" [ref=e288]:
+            - /placeholder: השם שלך
+        - generic [ref=e289]:
+          - generic [ref=e290]: אימייל
+          - textbox "אימייל" [ref=e291]:
+            - /placeholder: your@email.com
+        - generic [ref=e292]:
+          - generic [ref=e293]: טלפון
+          - textbox "טלפון" [ref=e294]:
+            - /placeholder: 054-XXX-XXXX
+        - generic [ref=e295]:
+          - generic [ref=e296]: הודעה
+          - textbox "הודעה" [ref=e297]:
+            - /placeholder: ספרי לנו על הפרויקט...
+        - button "שלחי הודעה" [ref=e298]
+        - paragraph [ref=e299]: אנחנו מכבדות את הפרטיות שלך. המידע שלך בטוח איתנו.
+  - contentinfo [ref=e300]:
+    - generic [ref=e301]:
+      - generic [ref=e302]:
+        - generic [ref=e303]:
+          - img "MSApps — בית פיתוח" [ref=e305]
+          - paragraph [ref=e306]: פיתוח תוכנה AI-native. בונות מוצרים דיגיטליים חכמים מ-2010.
+        - generic [ref=e307]:
+          - paragraph [ref=e308]: מוצר
+          - list [ref=e309]:
+            - listitem [ref=e310]:
+              - link "שירותים" [ref=e311] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e312]:
+              - link "פרויקטים" [ref=e313] [cursor=pointer]:
+                - /url: "#case-studies"
+            - listitem [ref=e314]:
+              - link "אודות" [ref=e315] [cursor=pointer]:
+                - /url: "#about"
+        - generic [ref=e316]:
+          - paragraph [ref=e317]: חברה
+          - list [ref=e318]:
+            - listitem [ref=e319]:
+              - link "צרי קשר" [ref=e320] [cursor=pointer]:
+                - /url: "#contact"
+            - listitem [ref=e321]:
+              - link "Facebook" [ref=e322] [cursor=pointer]:
+                - /url: https://www.facebook.com/msapps.mobi
+            - listitem [ref=e323]:
+              - link "WhatsApp" [ref=e324] [cursor=pointer]:
+                - /url: https://wa.me/972544255549
+        - generic [ref=e325]:
+          - paragraph [ref=e326]: פרטי קשר
+          - list [ref=e327]:
+            - listitem [ref=e328]:
+              - link "info@msapps.mobi" [ref=e329] [cursor=pointer]:
+                - /url: mailto:info@msapps.mobi
+            - listitem [ref=e330]:
+              - link "055-4338803" [ref=e331] [cursor=pointer]:
+                - /url: tel:+972554338803
+            - listitem [ref=e332]: הרצליה, ישראל
+      - generic [ref=e334]:
+        - paragraph [ref=e335]: © 2026 MSApps. כל הזכויות שמורות.
+        - paragraph [ref=e336]: נהנדס בחוכמה. נבנה בכוונה.
