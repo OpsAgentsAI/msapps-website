@@ -280,21 +280,36 @@
     background: linear-gradient(90deg, transparent, rgba(240, 94, 34, 0.2), transparent);
   }
 
-  /* Skip link (a11y) */
+  /* Skip link (a11y).
+     Uses the WHATWG "visually hidden" pattern — clip + 1px box at natural
+     position. Avoids `left: -999px` which on RTL pages extends scrollWidth
+     by ~999px (caused horizontal dead-scroll on HE; LTR was unaffected). */
   .skip-link {
     position: absolute;
-    left: -999px;
-    top: auto;
+    top: 0;
+    inset-inline-start: 0;
     width: 1px;
     height: 1px;
+    margin: -1px;
+    padding: 0;
     overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
   .skip-link:focus {
-    left: 1rem;
+    position: fixed;
     top: 1rem;
+    inset-inline-start: 1rem;
     width: auto;
     height: auto;
+    margin: 0;
     padding: 0.5rem 1rem;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
     background: var(--color-fg);
     color: var(--color-bg-base);
     z-index: 100;
