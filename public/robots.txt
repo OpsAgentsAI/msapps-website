@@ -1,0 +1,6 @@
+# MSApps msapps.mobi — staging
+# On apex cutover (mkY0iyEe), flip Sitemap host to https://msapps.mobi/sitemap-index.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://msapps-website-staging.web.app/sitemap-index.xml
