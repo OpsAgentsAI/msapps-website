@@ -1,5 +1,6 @@
 ---
 import MarketingLayout from '../../layouts/MarketingLayout.astro';
+import MobileNav from '../../components/MobileNav.astro';
 ---
 <MarketingLayout
   lang="en"
@@ -21,7 +22,8 @@ import MarketingLayout from '../../layouts/MarketingLayout.astro';
         <a href="#contact" class="hover:text-accent">Contact</a>
         <a href="/" class="hover:text-accent" hreflang="he" lang="he">עברית</a>
       </div>
-      <a href="#contact" class="btn-primary px-6 py-2 rounded-lg text-sm">Get Started</a>
+      <a href="#contact" class="btn-primary px-6 py-2 rounded-lg text-sm hidden md:inline-flex">Get Started</a>
+      <MobileNav lang="en" />
     </div>
   </nav>
 
