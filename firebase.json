@@ -5,6 +5,9 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": true,
     "trailingSlash": false,
+    "rewrites": [
+      { "source": "/api/contact", "function": { "functionId": "contactForm", "region": "us-central1" } }
+    ],
     "redirects": [
       { "source": "/en/android-16", "destination": "/en/android", "type": 301 },
       { "source": "/en/android-16/", "destination": "/en/android", "type": 301 },
@@ -29,5 +32,13 @@
         ]
       }
     ]
-  }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "nodejs22",
+      "ignore": ["node_modules", ".git", "*.log"]
+    }
+  ]
 }
