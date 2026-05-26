@@ -129,7 +129,13 @@ async function getZohoAccessToken() {
   return cachedAccessToken;
 }
 
-async function sendZohoMail({ accountId, accessToken, to, subject, html, replyTo }) {
+// Note: we intentionally do NOT pass replyTo here. Zoho Mail rejects sends with
+// `You need to verify the ReplyTo address` (HTTP 500) when the Reply-To is not in
+// the jobs@msapps.mobi mailbox's verified-addresses list. The submitter's email
+// is already in the subject and as a clickable mailto link in the body, so the
+// ops team can reply with one click. Sender stays jobs@msapps.mobi for both
+// the ops notification and the user auto-reply.
+async function sendZohoMail({ accountId, accessToken, to, subject, html }) {
   const res = await fetch(`${ZOHO_MAIL_HOST}/api/accounts/${accountId}/messages`, {
     method: 'POST',
     headers: {
@@ -143,7 +149,6 @@ async function sendZohoMail({ accountId, accessToken, to, subject, html, replyTo
       content: html,
       mailFormat: 'html',
       askReceipt: 'no',
-      ...(replyTo ? { replyTo } : {}),
     }),
   });
   const data = await res.json().catch(() => ({}));
@@ -247,7 +252,6 @@ export const contactForm = onRequest(
         to: TO_ADDRESS,
         subject: opsMail.subject,
         html: opsMail.html,
-        replyTo: email,
       });
       console.info(JSON.stringify({
         event: 'contact_submission',
@@ -265,7 +269,6 @@ export const contactForm = onRequest(
           to: email,
           subject: autoMail.subject,
           html: autoMail.html,
-          replyTo: REPLY_TO_DEFAULT,
         });
       } catch (autoErr) {
         console.warn(JSON.stringify({ event: 'autoreply_failed_nonfatal', email_hash: hashEmail(email), error: String(autoErr) }));
