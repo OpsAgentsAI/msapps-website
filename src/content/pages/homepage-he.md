@@ -1,9 +1,9 @@
 ---
-title: "MSApps — Mobile <3 AI First"
+title: "MSApps — Mobile 🧡 AI First"
 lang: he
-metaTitle: "MSApps — Mobile <3 AI First | מובילים בפיתוח דיגיטלי בישראל"
+metaTitle: "MSApps — Mobile 🧡 AI First | מובילים בפיתוח דיגיטלי בישראל"
 metaDescription: "16 שנות ניסיון. 40+ מומחים ישראלים. מובייל, ווב, IoT, AI ופלאגיני Claude. שותפים של פניקס, ליברה, יוניון מוטורס, אסותא. בואו נדבר."
-h1: "מובילים בפיתוח פתרונות דיגיטליים Mobile <3 AI First בישראל"
+h1: "מובילים בפיתוח פתרונות דיגיטליים Mobile 🧡 AI First בישראל"
 subhead: "16 שנות ניסיון, 40+ מומחים ישראלים. מאפליקציות פיננסיות מתוחכמות ועד מערכות IoT וסוכני AI — אנחנו הופכים רעיונות מורכבים למציאות עבור החברות המובילות במשק."
 cta: "בואו נדבר"
 ctaHref: "mailto:info@msapps.mobi"
