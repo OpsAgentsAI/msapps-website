@@ -495,10 +495,13 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
-  /* WCAG 2.5.5 minimum tap target — 44×44 CSS px (card 15ILXFOj) */
+  /* WCAG 2.5.5 minimum tap target — 44×44 CSS px (card 15ILXFOj).
+     Asymmetric padding preserves the original 24×16 px inner content box
+     so the open-state transform `translateY(±7px)` still converges the
+     bars cleanly into an X. Per Gemini code review on PR #16. */
   width: 2.75rem;
   height: 2.75rem;
-  padding: 0.625rem;
+  padding: 0.875rem 0.625rem;
   background: transparent;
   border: 0;
   cursor: pointer;
