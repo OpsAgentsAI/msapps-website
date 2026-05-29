@@ -366,7 +366,7 @@ import MobileNav from '../components/MobileNav.astro';
                 <textarea id="message-he" name="message" rows="5" required class="input-field w-full resize-none" placeholder="ספרו לנו על הפרויקט..."></textarea>
               </div>
               <!-- Honeypot: hidden from real users; bots fill it and get rejected. -->
-              <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" tabindex="-1">
+              <div aria-hidden="true" class="visually-hidden" tabindex="-1">
                 <label for="hp_field-he">Leave this field empty</label>
                 <input id="hp_field-he" name="hp_field" type="text" tabindex="-1" autocomplete="off" />
               </div>

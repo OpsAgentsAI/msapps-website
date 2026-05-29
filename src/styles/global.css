@@ -314,6 +314,30 @@
     color: var(--color-bg-base);
     z-index: 100;
   }
+
+  /* WHATWG visually-hidden helper. Same RTL-safe pattern as .skip-link.
+     TWO valid use cases:
+       1. aria-hidden="true" elements that must be invisible AND excluded
+          from the a11y tree (e.g. honeypot anti-spam inputs — pair with
+          tabindex="-1").
+       2. Screen-reader-only labels — omit aria-hidden so SR can read them.
+     NEVER use `left:-9999px` for this purpose — it extends document
+     scrollWidth on `dir="rtl"` and causes horizontal dead-scroll.
+     See card 3xFSKkFv postmortem. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    inset-inline-start: 0;
+    top: 0;
+  }
 }
 
 /* ── Deep-link prose pages (content collection routes) ──────────────── */
