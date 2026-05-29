@@ -316,10 +316,14 @@
   }
 
   /* WHATWG visually-hidden helper. Same RTL-safe pattern as .skip-link.
-     Use on any element that must remain in the a11y tree but not in flow
-     (honeypot anti-spam inputs, screen-reader-only labels, etc.). NEVER
-     use `left:-9999px` for this purpose — it extends document scrollWidth
-     on `dir="rtl"` and causes horizontal dead-scroll. See card 3xFSKkFv. */
+     TWO valid use cases:
+       1. aria-hidden="true" elements that must be invisible AND excluded
+          from the a11y tree (e.g. honeypot anti-spam inputs — pair with
+          tabindex="-1").
+       2. Screen-reader-only labels — omit aria-hidden so SR can read them.
+     NEVER use `left:-9999px` for this purpose — it extends document
+     scrollWidth on `dir="rtl"` and causes horizontal dead-scroll.
+     See card 3xFSKkFv postmortem. */
   .visually-hidden {
     position: absolute;
     width: 1px;
