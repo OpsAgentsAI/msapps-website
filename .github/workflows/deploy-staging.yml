@@ -93,7 +93,6 @@ jobs:
         # Hosting still ships green above. The private-vs-public invoker model for
         # contactForm needs a deeper decision (see report). Until then this step warns
         # instead of failing the whole deploy.
-        continue-on-error: true
         # Hard gate (LyD91Uy5 resolved): contactForm now deploys with
         # invoker:'private', so an empty-body POST through the Hosting rewrite
         # must return 400 (validation_failed). A 404 means the function failed
