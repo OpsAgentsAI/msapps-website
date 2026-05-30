@@ -58,19 +58,18 @@ jobs:
         # and MUST be allowed to ship independently.
         run: firebase deploy --only hosting:staging --project=$PROJECT_ID --non-interactive
 
-      - name: Deploy contactForm function to staging (soft-fail until LyD91Uy5 clears)
+      - name: Deploy contactForm function to staging
         # IMPORTANT: scope to the named function, NOT `functions` namespace, because
         # opsagent-prod hosts sibling functions from msapps-lead-pipeline (aiChat,
         # allowlist, beforeCreate, briefing, health, leads, mintQaToken,
         # scheduledBriefing) that this repo does not manage. A broad `--only functions`
         # would try to delete those and abort in non-interactive mode anyway.
         #
-        # continue-on-error gates this on Trello card LyD91Uy5: the contactForm
-        # CREATE path tries to bind allUsers which is blocked by opsagent-prod
-        # org policy. Remove the continue-on-error once /gcloud-devops-expert
-        # pre-creates contactForm with --no-allow-unauthenticated and binds the
-        # Firebase Hosting service identity as the invoker.
-        continue-on-error: true
+        # The contactForm CREATE path no longer triggers the org-policy-blocked
+        # allUsers -> roles/run.invoker grant: functions/index.js now declares
+        # `invoker: 'private'` (LyD91Uy5). The function is reachable via the
+        # Firebase Hosting rewrite (Hosting service identity), not public callers.
+        # Soft-fail removed so a real function-deploy failure is no longer masked.
         run: firebase deploy --only functions:contactForm --project=$PROJECT_ID --non-interactive
 
       - name: Smoke test homepage
@@ -87,10 +86,10 @@ jobs:
           [ "$STATUS" = "200" ] || { echo "::error::HTTP $STATUS after 10 retries"; exit 1; }
 
       - name: Smoke test /api/contact (validation path — expect 400)
-        # Soft-fail tied to LyD91Uy5: if contactForm couldn't deploy in the
-        # previous step, the endpoint returns 404, not 400. We log + warn but
-        # don't fail the whole workflow on this until LyD91Uy5 is closed.
-        continue-on-error: true
+        # Hard gate (LyD91Uy5 resolved): contactForm now deploys with
+        # invoker:'private', so an empty-body POST through the Hosting rewrite
+        # must return 400 (validation_failed). A 404 means the function failed
+        # to deploy; we now fail the workflow instead of warning.
         run: |
           set -e
           URL="https://msapps-website-staging.web.app/api/contact"
@@ -101,8 +100,5 @@ jobs:
             echo "Attempt $i: HTTP $STATUS — waiting 8s for cold start"
             sleep 8
           done
-          if [ "$STATUS" = "400" ]; then
-            echo "::notice::/api/contact smoke test PASSED"
-          else
-            echo "::warning::/api/contact returned $STATUS (expected 400). Likely contactForm function not deployed yet — see card LyD91Uy5."
-          fi
+          [ "$STATUS" = "400" ] || { echo "::error::/api/contact returned $STATUS (expected 400 validation reject). contactForm likely not deployed — see card LyD91Uy5."; exit 1; }
+          echo "::notice::/api/contact smoke test PASSED" 
