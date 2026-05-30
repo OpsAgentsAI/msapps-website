@@ -342,13 +342,15 @@ import MobileNav from '../../components/MobileNav.astro';
             <form
               id="contact-form-en"
               class="space-y-6"
-              action="mailto:info@msapps.mobi"
+              action="/api/contact"
               method="post"
-              enctype="text/plain"
               data-lang="en"
               data-endpoint="https://msapps-website-staging.web.app/api/contact"
               novalidate
             >
+              <noscript>
+                <p class="text-sm text-center text-gray-300">This form requires JavaScript. You can also email us directly at <a class="text-accent" href="mailto:info@msapps.mobi">info@msapps.mobi</a>.</p>
+              </noscript>
               <div>
                 <label class="block text-sm font-semibold text-gray-300 mb-2" for="name-en">Full Name</label>
                 <input id="name-en" name="name" type="text" required class="input-field w-full" placeholder="Your name" autocomplete="name" />
