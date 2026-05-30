@@ -166,6 +166,13 @@ export const contactForm = onRequest(
     maxInstances: 10,
     secrets: [ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET, ZOHO_REFRESH_TOKEN, ZOHO_ACCOUNT_ID_SECRET],
     cors: false,
+    // invoker:'private' prevents firebase-tools' CREATE path from implicitly
+    // granting allUsers -> roles/run.invoker, which the opsagent-prod org policy
+    // (iam.allowedPolicyMemberDomains) blocks. The function is reached only via
+    // the Firebase Hosting rewrite (Hosting's service identity, which firebase
+    // deploy binds automatically), never by public/unauthenticated callers. See
+    // Trello card LyD91Uy5.
+    invoker: 'private',
   },
   async (req, res) => {
     const ip = (req.headers['x-forwarded-for'] || req.ip || 'unknown').toString().split(',')[0].trim();
